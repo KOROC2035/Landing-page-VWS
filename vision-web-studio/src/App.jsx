@@ -9,6 +9,13 @@ function App() {
   const phoneNumber = "2250719366007"; 
   const defaultMessage = "Bonjour Vision Web Studio, je souhaite obtenir un audit gratuit pour la digitalisation de mon activité.";
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(defaultMessage)}`;
+  // Fonction pour envoyer l'événement au serveur Vercel
+  const handleWhatsAppClick = () => {
+    fetch('https://backend-vws.onrender.com', { // L'URL de ton backend
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+    }).catch(err => console.error("Erreur de tracking:", err));
+  };
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
@@ -29,6 +36,7 @@ function App() {
         <a 
           href={whatsappUrl} 
           target="_blank" 
+          onClick={handleWhatsAppClick}
           rel="noopener noreferrer" 
           className="hidden md:flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-5 py-2.5 rounded-full font-semibold transition-colors"
         >
@@ -79,6 +87,7 @@ function App() {
                 <a 
                   href={whatsappUrl} 
                   target="_blank" 
+                  onClick={handleWhatsAppClick}
                   rel="noopener noreferrer" 
                   className="w-full sm:w-auto flex items-center justify-center gap-2 bg-green-500 hover:bg-green-400 text-slate-950 text-base lg:text-lg px-6 lg:px-8 py-3 lg:py-4 rounded-full font-extrabold transition-all hover:scale-105 shadow-[0_0_20px_rgba(34,197,94,0.4)]"
                 >
@@ -352,6 +361,7 @@ function App() {
           <a 
             href={whatsappUrl} 
             target="_blank" 
+            onClick={handleWhatsAppClick}
             rel="noopener noreferrer" 
             className="inline-flex items-center justify-center gap-3 bg-green-500 hover:bg-green-400 text-slate-950 px-8 py-5 rounded-full font-extrabold text-lg transition-all hover:scale-105 shadow-[0_0_30px_rgba(34,197,94,0.3)] w-full sm:w-auto"
           >
