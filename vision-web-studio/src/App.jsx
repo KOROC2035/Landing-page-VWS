@@ -11,7 +11,7 @@ function App() {
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(defaultMessage)}`;
   // Fonction pour envoyer l'événement au serveur Vercel
   const handleWhatsAppClick = () => {
-    fetch('https://backend-vws.onrender.com', { // L'URL de ton backend
+    fetch('https://backend-vws.onrender.com/api/track-whatsapp', { // L'URL de ton backend
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
     }).catch(err => console.error("Erreur de tracking:", err));
